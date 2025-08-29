@@ -6,7 +6,7 @@ Try the project instantly in your browser:
 
 ---
 
-A smart umbrella station built with **ESP32**. It tracks umbrella loans, detects overdue returns, and sends **WhatsApp notifications** via [CallMeBot](https://www.callmebot.com/). Includes **LCD, RTC, RGB LED, Servo motor**, and button-based student ID simulation.  
+A smart umbrella station built with ESP32 that allows students to borrow and return umbrellas using a student card with RFID functionality (simulate using button). The system automatically tracks availability of umbrella at each station, manages overdue returns using RTC timestamps, and sends real-time WhatsApp notifications (borrow, return, overdue) via CallMeBot. It integrates an LCD display, RGB LED indicators, and a servo-based locking mechanism for smooth automation.
 
 ## 📁 SmartBrella - Ohmigos
 📄 platformio.ini        # PlatformIO configuration (board, libraries)  
