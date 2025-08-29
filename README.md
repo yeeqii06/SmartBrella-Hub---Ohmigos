@@ -58,7 +58,7 @@ This will make the SmartBrella ecosystem more user-friendly and scalable for cam
 
 ---
 
-## ▶️ How to Run Locally
+## ▶️ How to Run Locally (Firmware)
 1. Install VS Code + PlatformIO
 2. Clone this repository: git clone https://github.com/yeeqii06/SmartBrella-Hub---Ohmigos.git
 3. Open the folder in VS Code with PlatformIO.
