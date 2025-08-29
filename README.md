@@ -37,11 +37,17 @@ See `diagram.json` for the full circuit.
 
 ---
 
-📁 YourProject
- ┣ 📄 platformio.ini   # PlatformIO config (board + libraries)
- ┣ 📄 wokwi.toml       # Wokwi simulation settings
- ┣ 📄 diagram.json     # Wokwi circuit diagram
- ┣ 📂 src              # source code (main.cpp)
- ┣ 📂 lib              # Extra libraries (if any)
- ┗ 📄 README.md        # Project documentation
+## 🖥️ Local Setup (Optional)  
+
+If you want to run this on your own ESP32 board:  
+
+1. Install [VS Code](https://code.visualstudio.com/) + [PlatformIO](https://platformio.org/install).  
+2. Clone this repo and open it in PlatformIO.  
+3. Required libraries (will auto-install via `platformio.ini`):  
+   - LiquidCrystal_I2C  
+   - RTClib  
+   - ESP32Servo  
+4. Connect your ESP32 board and upload the code with PlatformIO.  
+5. Update `main.cpp` with your own **WhatsApp number** and **API key** (see WhatsApp Setup above).  
+
 
