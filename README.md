@@ -25,7 +25,7 @@ A smart umbrella station built with **ESP32**. It tracks umbrella loans, detects
 ## ⚡ Features  
 - Borrow/Return with student ID buttons (A, B, C)  
 - LCD shows status + umbrella availability  
-- RGB LED (green = available, red = none, blue = processing)  
+- RGB LED (green = Borrowing, red = Returning)  
 - Servo lock/unlock when borrowing or returning  
 - Overdue detection + WhatsApp reminders  
 - Penalty calculation for late returns  
