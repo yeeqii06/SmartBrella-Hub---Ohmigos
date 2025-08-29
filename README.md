@@ -2,7 +2,7 @@
 
 ## ▶️ Quick Start (Wokwi Simulator)  
 Try the project instantly in your browser:  
-👉 [Run SmartBrella on Wokwi](https://wokwi.com/projects/440510805426535425)
+👉 [Run SmartBrella on Wokwi](https://wokwi.com/projects/440551645595388929)
 
 ---
 
@@ -39,7 +39,7 @@ A smart umbrella station built with **ESP32**. It tracks umbrella loans, detects
 - 16x2 I2C LCD (0x27)  
 - RTC DS1307/DS3231  
 - RGB LED (common cathode)  
-- Servo motor  
+- 2 Servo motor  
 - Push buttons: Borrow (D4), Return (D5), Fake Return (D19), Students A/B/C (D18/D23/D32)  
 
 See `diagram.json` for the full circuit.  
