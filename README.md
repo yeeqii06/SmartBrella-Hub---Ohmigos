@@ -52,7 +52,7 @@ See `diagram.json` for the full circuit.
 
 ## ▶️ How to Run Locally
 1. Install VS Code + PlatformIO
-2. Clone this repository: git clone https://github.com/your-username/your-repo.git
+2. Clone this repository: git clone https://github.com/yeeqii06/SmartBrella-Hub---Ohmigos.git
 3. Open the folder in VS Code with PlatformIO.
 4. Required libraries (auto-installed via platformio.ini):
 - LiquidCrystal_I2C
