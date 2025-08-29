@@ -6,6 +6,11 @@ Try the project instantly in your browser:
 
 ---
 
+## 🧩 Problem Statement
+On university campuses, students often face sudden weather changes such as heavy rain or extreme sun exposure. Without immediate access to umbrellas, they risk discomfort, health issues, and even missing important classes or activities. The lack of a reliable system to ensure that umbrellas are available when needed creates uncertainty and inconvenience for students. Therefore, there is a need for a smart umbrella lending system that automates borrowing and returning while allowing students to check real-time availability through a mobile app, ensuring convenience, accountability, and a better campus experience.
+
+---
+
 A smart umbrella station built with ESP32 that allows students to borrow and return umbrellas using a student card with RFID functionality (simulate using button). The system automatically tracks availability of umbrella at each station, manages overdue returns using RTC timestamps, and sends real-time WhatsApp notifications (borrow, return, overdue) via CallMeBot. It integrates an LCD display, RGB LED indicators, and a servo-based locking mechanism for smooth automation.
 
 ## 📁 SmartBrella - Ohmigos
