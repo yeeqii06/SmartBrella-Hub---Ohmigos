@@ -3,17 +3,17 @@
 
 A smart umbrella station built with **ESP32**. It tracks umbrella loans, detects overdue returns, and sends **WhatsApp notifications** via [CallMeBot](https://www.callmebot.com/). Includes **LCD, RTC, RGB LED, Servo motor**, and button-based student ID simulation.  
 
-## 📁 SmartBrella - Ohmigos
- ┣ 📄 platformio.ini      # PlatformIO configuration (board, libraries)  
- ┣ 📄 wokwi.toml          # Wokwi simulation settings  
- ┣ 📄 diagram.json        # Wokwi wiring diagram  
- ┣ 📄 README.md           # Project documentation  
- ┣ 📂 src                 # Main source code  
- ┃   ┗ 📄 main.cpp  
- ┣ 📂 lib                 # Custom libraries (currently placeholder only)  
- ┃   ┗ 📄 README  
- ┣ 📂 test                # Unit tests (currently placeholder only)  
- ┃   ┗ 📄 README  
+## 📁 SmartBrella - Ohmigo
+📄 platformio.ini      # PlatformIO configuration (board, libraries)  
+📄 wokwi.toml          # Wokwi simulation settings  
+📄 diagram.json        # Wokwi wiring diagram  
+📄 README.md           # Project documentation  
+📂 src                 # Main source code  
+  ┗ 📄 main.cpp  
+ 📂 lib                 # Custom libraries (currently placeholder only)  
+  ┗ 📄 README  
+📂 test                # Unit tests (currently placeholder only)  
+  ┗ 📄 README  
 
 ---
 
@@ -47,6 +47,15 @@ See `diagram.json` for the full circuit.
    ```cpp
    String DEMO_PHONE = "601XXXXXXX";   // Your phone (E.164, no '+')
    String DEMO_APIKEY = "YOUR_API_KEY";
+
+---
+
+## 📱 Mobile App (Frontend Design)  
+We are developing a companion app that will:  
+- Show real-time umbrella availability at each station  
+- Sync with the ESP32 station data  
+
+This will make the SmartBrella ecosystem more user-friendly and scalable for campus-wide deployment.  
 
 ---
 
