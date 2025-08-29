@@ -3,6 +3,18 @@
 
 A smart umbrella station built with **ESP32**. It tracks umbrella loans, detects overdue returns, and sends **WhatsApp notifications** via [CallMeBot](https://www.callmebot.com/). Includes **LCD, RTC, RGB LED, Servo motor**, and button-based student ID simulation.  
 
+## 📁 SmartBrella - Ohmigos
+ ┣ 📄 platformio.ini      # PlatformIO configuration (board, libraries)  
+ ┣ 📄 wokwi.toml          # Wokwi simulation settings  
+ ┣ 📄 diagram.json        # Wokwi wiring diagram  
+ ┣ 📄 README.md           # Project documentation  
+ ┣ 📂 src                 # Main source code  
+ ┃   ┗ 📄 main.cpp  
+ ┣ 📂 lib                 # Custom libraries (currently placeholder only)  
+ ┃   ┗ 📄 README  
+ ┣ 📂 test                # Unit tests (currently placeholder only)  
+ ┃   ┗ 📄 README  
+
 ---
 
 ## ⚡ Features  
@@ -13,7 +25,8 @@ A smart umbrella station built with **ESP32**. It tracks umbrella loans, detects
 - Overdue detection + WhatsApp reminders  
 - Penalty calculation for late returns  
 - Works on **real hardware** or **Wokwi simulation**  
-- Check availability of umbrella in each station using app
+- Check availability of umbrella in each station using app  
+
 ---
 
 ## 🖥️ Hardware (Wokwi Circuit)  
@@ -37,17 +50,14 @@ See `diagram.json` for the full circuit.
 
 ---
 
-## 🖥️ Local Setup (Optional)  
-
-If you want to run this on your own ESP32 board:  
-
-1. Install [VS Code](https://code.visualstudio.com/) + [PlatformIO](https://platformio.org/install).  
-2. Clone this repo and open it in PlatformIO.  
-3. Required libraries (will auto-install via `platformio.ini`):  
-   - LiquidCrystal_I2C  
-   - RTClib  
-   - ESP32Servo  
-4. Connect your ESP32 board and upload the code with PlatformIO.  
-5. Update `main.cpp` with your own **WhatsApp number** and **API key** (see WhatsApp Setup above).  
-
+## ▶️ How to Run Locally
+1. Install VS Code + PlatformIO
+2. Clone this repository: git clone https://github.com/your-username/your-repo.git
+3. Open the folder in VS Code with PlatformIO.
+4. Required libraries (auto-installed via platformio.ini):
+- LiquidCrystal_I2C
+- RTClib
+- ESP32Servo
+5. Update main.cpp with your WhatsApp number and API key.
+6. Build and upload to your ESP32 board, or run in Wokwi simulator.
 
