@@ -1,6 +1,4 @@
 // =============== Smart Umbrella – Borrow/Return + Overdue + WhatsApp (FreeRTOS) ===============
-// LCD updates only on events.
-// Serial logs umbrella availability ONLY when LCD shows idle screen.
 // ===============================================================================================
 
 #include <Wire.h>
@@ -17,8 +15,8 @@
 
 const char* DEMO_HOST   = "api.callmebot.com";
 String DEMO_PATH_FORMAT = "/whatsapp.php?phone=%s&text=%s&apikey=%s";
-String DEMO_PHONE       = "60162897923";   // your phone (E.164 without '+')
-String DEMO_APIKEY      = "7295936";       // your CallMeBot API key
+String DEMO_PHONE       = "60175804578";   // your phone (E.164 without '+')
+String DEMO_APIKEY      = "6139045";       // your CallMeBot API key
 String STATION_NAME     = "Station A";
 
 // ---------------- Pins ----------------
@@ -37,6 +35,11 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 RTC_DS3231 rtc;
 
 Servo myServo;
+Servo myServo2; // New Servo
+
+bool servo1Available = true; 
+bool servo2Available = true;
+
 enum ServoState { IDLE, MOVING_ANTICLOCKWISE, MOVING_CLOCKWISE };
 ServoState servoState = IDLE;
 unsigned long servoMoveStartTime = 0;
@@ -44,8 +47,10 @@ const unsigned long MOVING_TIME = 1000; // ms
 const int startAngle = 0;
 const int stopAngle  = 90;
 
+int activeServo = 1; // Which servo to move (1 or 2)
+
 // ---------------- Loans / Availability ----------------
-const int TOTAL_UMBRELLAS = 3;
+const int TOTAL_UMBRELLAS = 2;
 const String UMBRELLA_ID  = "U0001";
 int availableUmbrellas    = TOTAL_UMBRELLAS;
 
@@ -238,26 +243,28 @@ void updateServo() {
   if (servoState == IDLE) return;
 
   unsigned long progress = millis() - servoMoveStartTime;
+  Servo *servoPtr = (activeServo == 1) ? &myServo : &myServo2; // select active servo
 
   if (servoState == MOVING_ANTICLOCKWISE) {
     if (progress <= MOVING_TIME) {
       long angle = map(progress, 0, MOVING_TIME, startAngle, stopAngle);
-      myServo.write(angle);
+      servoPtr->write(angle);
     } else {
-      myServo.write(stopAngle);
+      servoPtr->write(stopAngle);
       servoState = MOVING_CLOCKWISE;
       servoMoveStartTime = millis();
-      logWithTime("SERVO", "Finished opening, now closing...");
+      showLine("Motor " + String(activeServo), "Closing...");
+      logWithTime("SERVO", "Finished opening Servo %d, now closing...", activeServo);
     }
   }
   else if (servoState == MOVING_CLOCKWISE) {
     if (progress <= MOVING_TIME) {
       long angle = map(progress, 0, MOVING_TIME, stopAngle, startAngle);
-      myServo.write(angle);
+      servoPtr->write(angle);
     } else {
-      myServo.write(startAngle);
+      servoPtr->write(startAngle);
       servoState = IDLE;
-      logWithTime("SERVO", "Cycle complete (open + close)");
+      logWithTime("SERVO", "Cycle complete (Servo %d open + close)", activeServo);
 
       if (pendingAction == BORROW_ACTION) {
         notifyBorrow(pendingStudent, UMBRELLA_ID);
@@ -290,6 +297,7 @@ void setup() {
   Serial.begin(115200);
 
   myServo.attach(16);
+  myServo2.attach(17);
 
   if (!rtc.begin()) {
     logWithTime("SYS", "Couldn't find RTC");
@@ -312,72 +320,92 @@ void loop() {
 
   // Borrow
   if (digitalRead(BORROW_BUTTON) == LOW) {
-    if (!studentVerified) {
-      showLine("Tap ID first", "to borrow");
-    } else if (studentHasLoan(currentStudent)) {
-      showLine("Already borrowed", "Return first");
-    } else if (availableUmbrellas <= 0) {
-      showLine("No umbrella", "available");
+  if (!studentVerified) {
+    showLine("Tap ID first", "to borrow");
+  } else if (studentHasLoan(currentStudent)) {
+    showLine("Already borrowed", "Return first");
+  } else if (availableUmbrellas <= 0) {
+    showLine("No umbrella", "available");
+    delay(1000);
+    showIdleScreen();
+  } else {
+    // Select which servo has umbrella
+    if (servo1Available) {
+      activeServo = 1;
+      servo1Available = false;
+    } else if (servo2Available) {
+      activeServo = 2;
+      servo2Available = false;
     } else {
-      addLoan(currentStudent);
-      if (availableUmbrellas > 0) availableUmbrellas--;
+      showLine("No umbrella", "available");
+      delay(1000);
+      showIdleScreen();
+    }
 
-      showLine(currentStudent, "Borrowed " + UMBRELLA_ID);
-      logWithTime("BORROW", "%s borrowed %s", currentStudent.c_str(), UMBRELLA_ID.c_str());
+    addLoan(currentStudent);
+    if (availableUmbrellas > 0) availableUmbrellas--;
+
+    showLine("Borrowed by", currentStudent + " M" + String(activeServo));
+
+    logWithTime("BORROW", "%s borrowed %s", currentStudent.c_str(), UMBRELLA_ID.c_str());
+
+    servoState = MOVING_ANTICLOCKWISE;
+    servoMoveStartTime = millis();
+
+    pendingAction  = BORROW_ACTION;
+    pendingStudent = currentStudent;
+
+    studentVerified = false;
+    currentStudent = "";
+    setLED(availableUmbrellas == 0, availableUmbrellas > 0, false);
+  }
+}
+
+  // Return
+  if (digitalRead(RETURN_BUTTON) == LOW) {
+  if (!studentVerified) {
+    showLine("Tap ID first", "to return");
+  } else {
+    int idx = findLoanIndexByStudent(currentStudent);
+    if (idx == -1) {
+      showLine("No active loan", "Cannot return");
+      logWithTime("WARN", "%s tried to return without active loan", currentStudent.c_str());
+    } else {
+      unsigned long totalBorrowTime = millis() - loans[idx].borrowTime;
+      bool isLate = (totalBorrowTime > overdueLimit);
+      float penalty = isLate ? ((totalBorrowTime - overdueLimit) / 1000) * 0.50f : 0.0f;
+
+      // Which servo to open for returning? 
+      // Free one that was locked: simple logic (first free one)
+      if (!servo1Available) { activeServo = 1; servo1Available = true; }
+      else if (!servo2Available) { activeServo = 2; servo2Available = true; }
+
+      if (isLate) {
+        char buf[17];
+        snprintf(buf, sizeof(buf), "Penalty RM%.2f", penalty);
+        showLine("Late return!", buf);
+      } else {
+        showLine("Thanks for", "returning on time!");
+        showLine("Returning...", "Motor " + String(activeServo));
+      }
 
       servoState = MOVING_ANTICLOCKWISE;
       servoMoveStartTime = millis();
 
-      pendingAction  = BORROW_ACTION;
+      pendingAction  = RETURN_ACTION;
       pendingStudent = currentStudent;
+      pendingLate    = isLate;
+      pendingPenalty = penalty;
+
+      removeLoanAtIndex(idx);
+      if (availableUmbrellas < TOTAL_UMBRELLAS) availableUmbrellas++;
 
       studentVerified = false;
       currentStudent = "";
       setLED(availableUmbrellas == 0, availableUmbrellas > 0, false);
     }
   }
-
-  // Return
-  if (digitalRead(RETURN_BUTTON) == LOW) {
-    if (!studentVerified) {
-      showLine("Tap ID first", "to return");
-    } else {
-      int idx = findLoanIndexByStudent(currentStudent);
-      if (idx == -1) {
-        showLine("No active loan", "Cannot return");
-        logWithTime("WARN", "%s tried to return without active loan", currentStudent.c_str());
-      } else {
-        unsigned long totalBorrowTime = millis() - loans[idx].borrowTime;
-        bool isLate = (totalBorrowTime > overdueLimit);
-        float penalty = isLate ? ((totalBorrowTime - overdueLimit) / 1000) * 0.50f : 0.0f;
-
-        if (isLate) {
-          char buf[17];
-          snprintf(buf, sizeof(buf), "Penalty RM%.2f", penalty);
-          showLine("Late return!", buf);
-          logWithTime("RETURN", "Late return by %s. Penalty RM%.2f", currentStudent.c_str(), penalty);
-        } else {
-          showLine("Thanks for", "returning on time!");
-          logWithTime("RETURN", "On-time return by %s", currentStudent.c_str());
-        }
-
-        servoState = MOVING_ANTICLOCKWISE;
-        servoMoveStartTime = millis();
-
-        pendingAction  = RETURN_ACTION;
-        pendingStudent = currentStudent;
-        pendingLate    = isLate;
-        pendingPenalty = penalty;
-
-        removeLoanAtIndex(idx);
-        if (availableUmbrellas < TOTAL_UMBRELLAS) availableUmbrellas++;
-
-        studentVerified = false;
-        currentStudent = "";
-        setLED(availableUmbrellas == 0, availableUmbrellas > 0, false);
-      }
-    }
-  }
+}
 
   // Fake return
   if (digitalRead(FAKE_RETURN_BTN) == LOW) {
