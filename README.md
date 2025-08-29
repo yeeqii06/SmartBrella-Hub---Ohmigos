@@ -11,31 +11,20 @@ On university campuses, students often face sudden weather changes such as heavy
 
 ---
 
-A smart umbrella station built with ESP32 that allows students to borrow and return umbrellas using a student card with RFID functionality (simulate using button). The system automatically tracks availability of umbrella at each station, manages overdue returns using RTC timestamps, and sends real-time WhatsApp notifications (borrow, return, overdue) via CallMeBot. It integrates an LCD display, RGB LED indicators, and a servo-based locking mechanism for smooth automation.
-
-## 📁 SmartBrella - Ohmigos
-📄 platformio.ini        # PlatformIO configuration (board, libraries)  
-📄 wokwi.toml            # Wokwi simulation settings  
-📄 diagram.json          # Wokwi wiring diagram  
-📄 README.md             # Project documentation  
-📂 src                   # Main source code  
-  ┗ 📄 main.cpp  
- 📂 lib                  # Custom libraries (currently placeholder only)  
-  ┗ 📄 README  
-📂 test                  # Unit tests (currently placeholder only)  
-  ┗ 📄 README  
+## ✅ Proposed Solution
+We propose a Smart Umbrella Station powered by ESP32 that enables students to conveniently borrow and return umbrellas using their student card (simulated with buttons in this prototype). The system automatically tracks umbrella availability at each station, records borrow/return times with RTC, and detects overdue returns. To enhance accountability and user experience, students receive real-time WhatsApp notifications (borrow, return, overdue) via CallMeBot. The station integrates an LCD display, RGB LED indicators, and a servo-based locking mechanism for smooth and secure automation. A mobile app is provided to let students check umbrella availability across stations in real time, reducing uncertainty and improving campus convenience.
 
 ---
 
-## ⚡ Features  
-- Borrow/Return with student ID buttons (A, B, C)  
-- LCD shows status + umbrella availability  
-- RGB LED (green = Umbrella available, red = Umbrella not available)  
-- Servo lock/unlock when borrowing or returning  
-- Overdue detection + WhatsApp reminders  
-- Penalty calculation for late returns  
-- Works on **real hardware** or **Wokwi simulation**  
-- Check availability of umbrella in each station using app  
+## ⚡ Key Features  
+- Borrow/Return with Student ID → Simulated via buttons (A, B, C).
+- LCD Display → Shows borrowing/return status and umbrella availability.
+- RGB LED Indicators → Green = available, Red = unavailable.
+- Servo Lock/Unlock → Controls umbrella access during borrow/return.
+- Overdue Detection → RTC-based tracking with WhatsApp reminders.
+- Penalty Calculation → Late returns automatically logged with fee details.
+- Real-Time Notifications → WhatsApp messages for borrow, return, and overdue.
+- App Integration → Students can check umbrella availability in each station.
 
 ---
 
