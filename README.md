@@ -2,7 +2,9 @@
 
 ## ▶️ Quick Start (Wokwi Simulator)  
 Try the project instantly in your browser:  
-👉 [Run SmartBrella on Wokwi]([https://wokwi.com/projects/376229104256183297](https://wokwi.com/projects/440510805426535425))
+👉 [Run SmartBrella on Wokwi](https://wokwi.com/projects/440510805426535425)
+
+---
 
 A smart umbrella station built with **ESP32**. It tracks umbrella loans, detects overdue returns, and sends **WhatsApp notifications** via [CallMeBot](https://www.callmebot.com/). Includes **LCD, RTC, RGB LED, Servo motor**, and button-based student ID simulation.  
 
