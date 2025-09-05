@@ -51,6 +51,24 @@ We propose a Smart Umbrella Station powered by ESP32 that enables students to co
  ┃ ┗ 📁 venv/                     # (Optional) Virtual environment (ignored in Git)
 
 
+┣ 📁 SmartBrella_App/            # Flutter mobile application
+ ┃ ┣ 📁 lib/
+ ┃ ┃ ┣ 📁 screens/
+ ┃ ┃ ┃ ┣ 📄 borrow_return.dart
+ ┃ ┃ ┃ ┣ 📄 home_page.dart
+ ┃ ┃ ┃ ┣ 📄 loading_page.dart 
+ ┃ ┃ ┃ ┣ 📄 map_screen.dart 
+ ┃ ┃ ┃ ┣ 📄 orders_model.dart 
+ ┃ ┃ ┃ ┣ 📄 order_store.dart 
+ ┃ ┃ ┃ ┣ 📄 orders_page.dart
+ ┃ ┃ ┃ ┣ 📄 station_store.dart  
+ ┃ ┃ ┃ ┣ 📄 success_page.dart 
+ ┃ ┃ ┃ ┣ 📄 register_page.dart
+ ┃ ┃ ┃ ┗ 📁 assets/
+ ┃ ┃ ┃   ┗ 📄 logo.png
+ ┃ ┃ ┗ 📄 main.dart
+ ┃ ┣ 📁 pubspec.yaml 
+
  ┣ 📄 README.md                # Root project overview
 
 
