@@ -15,5 +15,6 @@ This project provides a **Face Registration and Recognition System** that allows
 Python 3.8 or higher
 
 Create Virtual Environment
+
 Install Dependencies
 
