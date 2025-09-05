@@ -10,23 +10,29 @@ We propose a Smart Umbrella Station powered by ESP32 that enables students to co
 
 ---
 
-📁 SmartBrella Hub - Ohmigos
- ┣📁 firmware
-  ┣ 📄 platformio.ini      # PlatformIO configuration (board, libraries)
-  ┣ 📄 wokwi.toml          # Wokwi simulation settings
-  ┣ 📄 diagram.json        # Wokwi wiring diagram
-  ┣ 📄 README.md           # Project documentation
-  ┣ 📂 src                 # Main source code
-  ┃    ┗ 📄 main.cpp
-  ┣ 📂 lib                 # Custom libraries (currently placeholder only)
-  ┃    ┗ 📄 README
-  ┣ 📂 test                # Unit tests (currently placeholder only)
-  ┃    ┗ 📄 README
- 
- ┣📁 Face recognition  
- ├─ hub.py               # Enrollment + kiosk (face recognition + GUI + logo)
-├─ main.py              # Minimal camera/recognition demo (optional)
-├─ faces/               # Enrollment snapshots (created at runtime)
-├─ umbrella.db          # SQLite DB (students + encodings); created at runtime
-├─ logo.jpg             # Project logo
-└─ README.md
+## 📂 Project Structure  
+
+```plaintext
+📁 SmartBrella-Hub-Ohmigos
+ ┣ 📁 firmware/                # ESP32 firmware (PlatformIO project)
+ ┃ ┣ 📄 platformio.ini         # PlatformIO config (board, libraries)
+ ┃ ┣ 📄 wokwi.toml             # Wokwi simulation settings
+ ┃ ┣ 📄 diagram.json           # Wokwi wiring diagram
+ ┃ ┣ 📄 README.md              # Firmware documentation
+ ┃ ┣ 📂 src/                   # Main source code
+ ┃ ┃ ┗ 📄 main.cpp
+ ┃ ┣ 📂 lib/                   # Custom libraries (currently placeholder only)
+ ┃ ┃ ┗ 📄 README
+ ┃ ┗ 📂 test/                  # Unit tests (currently placeholder only)
+ ┃   ┗ 📄 README
+
+ ┣ 📁 face_recognition/        # Python face recognition module
+ ┃ ┣ 📄 hub.py                 # Enrollment + kiosk (GUI + recognition + logo)
+ ┃ ┣ 📄 main.py                # Minimal recognition demo (optional)
+ ┃ ┣ 📂 faces/                 # Enrollment snapshots (runtime, auto-created)
+ ┃ ┣ 📄 umbrella.db            # SQLite DB (runtime, auto-created)
+ ┃ ┣ 📄 logo.jpg               # Project logo
+ ┃ ┗ 📄 README.md              # Face recognition documentation
+
+ ┣ 📄 README.md                # Root project overview
+
