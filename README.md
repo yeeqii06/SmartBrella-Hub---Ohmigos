@@ -35,6 +35,22 @@ We propose a Smart Umbrella Station powered by ESP32 that enables students to co
  ┃ ┣ 📄 logo.jpg               # Project logo
  ┃ ┗ 📄 README.md              # Face recognition documentation
 
+ ┣📁 face-recognition-system/      # Main project folder
+ ┃ ┣ 📄 main.py                   # Tkinter face recognition app (entry point)
+ ┃ ┣ 📄 util.py                   # Utility functions (UI helpers, recognition, etc.)
+ ┃ ┣ 📄 requirements.txt          # Dependencies for Linux/Mac
+ ┃ ┣ 📄 requirements_window.txt   # Dependencies for Windows
+ ┃ ┣ 📄 README.md                 # Project documentation
+ ┃ ┃
+ ┃ ┣ 📁 db/                       # User database (auto-created at runtime)
+ ┃ ┃ ┗ 📄 *.pickle                # Pickle files with face embeddings
+ ┃ ┃
+ ┃ ┣ 📁 logs/                     # Log files (auto-created at runtime)
+ ┃ ┃ ┗ 📄 log.txt                 # Attendance / login records
+ ┃ ┃
+ ┃ ┗ 📁 venv/                     # (Optional) Virtual environment (ignored in Git)
+
+
  ┣ 📄 README.md                # Root project overview
 
 
