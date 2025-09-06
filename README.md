@@ -11,6 +11,30 @@ Our proposed solution is SmartBrella Hub, a Smart Umbrella Borrowing and Returni
 
 ---
 
+## 🔗 How the System Works
+The SmartBrella Hub system is built with three main components working together:
+
+## 📡 Firmware (ESP32) – Controls the umbrella station hardware (servo locks, LCD, RGB LED, RTC).
+- Handles borrow/return logic
+- Detects overdue umbrellas
+- Verify correct umbrellas being returned
+- Sends WhatsApp reminders via CallMeBot
+
+## 👤 Face Recognition System (Python) – Provides kiosk-style user identification.
+- Students enroll their face once
+- Recognition verifies identity when borrowing/returning
+- Stores logs and embeddings in a local database
+
+## 📱 SmartBrella App (Flutter) – Mobile app for users.
+- Check station availability in real time
+- View borrowing history & penalties
+- Login with their account
+- Integrated map to find umbrella stations nearby
+
+Together, these three modules create a complete IoT solution that links hardware, AI-based verification, and a user-friendly mobile interface.
+
+---
+
 ## 📂 Project Structure  
 
 ```plaintext
@@ -59,29 +83,6 @@ Our proposed solution is SmartBrella Hub, a Smart Umbrella Borrowing and Returni
 
  ┣ 📄 README.md                   # Root project overview
 ```
----
-
-## 🔗 How the System Works
-The SmartBrella Hub system is built with three main components working together:
-## 📡 Firmware (ESP32) – Controls the umbrella station hardware (servo locks, LCD, RGB LED, RTC).
-- Handles borrow/return logic
-- Detects overdue umbrellas
-- Sends WhatsApp reminders via CallMeBot
-
-
-## 👤 Face Recognition System (Python) – Provides kiosk-style user identification.
-- Students enroll their face once
-- Recognition verifies identity when borrowing/returning
-- Stores logs and embeddings in a local database
-
-
-## 📱 SmartBrella App (Flutter) – Mobile app for users.
-- Check station availability in real time
-- View borrowing history & penalties
-- Register/login with their account
-- Integrated map to find umbrella stations nearby
-
-Together, these three modules create a complete IoT solution that links hardware, AI-based verification, and a user-friendly mobile interface.
 
 
 
