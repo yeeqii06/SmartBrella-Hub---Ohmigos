@@ -14,8 +14,7 @@ Our proposed solution is SmartBrella Hub, a Smart Umbrella Borrowing and Returni
 ## 🔗 How the System Works
 The SmartBrella Hub system is built with three main components working together:
 
-## 📡 Firmware (ESP32) – Controls the umbrella station hardware 
-## (servo locks, LCD, RGB LED, RTC).
+## 📡 Firmware (ESP32) – Controls the umbrella station hardware (servo locks, LCD, LED, RTC)
 - Handles borrow/return logic
 - Detects overdue umbrellas
 - Verify correct umbrellas being returned
