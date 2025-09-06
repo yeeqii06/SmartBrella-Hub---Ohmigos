@@ -58,7 +58,7 @@ Together, these three modules create a complete IoT solution that links hardware
  ┃ ┗ 📂 test/                     # Unit tests (currently placeholder only)
  ┃   ┗ 📄 README
 
- ┣ 📁 face-registration-system/    # Face recognition + GUI (Python project)
+ ┣ 📁 face-registration-system/   # Face recognition + GUI (Python project)
  ┃ ┣ 📄 main.py                   # Tkinter face recognition app (entry point)
  ┃ ┣ 📄 util.py                   # Utility functions (UI helpers, recognition, etc.)
  ┃ ┣ 📄 requirements.txt          # Dependencies for Linux/Mac
