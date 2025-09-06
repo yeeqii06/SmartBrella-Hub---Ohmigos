@@ -83,7 +83,7 @@ Together, these three modules create a complete IoT solution that links hardware
  ┃ ┃ ┃ ┣ 📄 station_store.dart    # State management for umbrella stations
  ┃ ┃ ┃ ┣ 📄 success_page.dart     # Success confirmation screen
  ┃ ┃ ┃ ┣ 📄 register_page.dart    # User registration screen
- ┃ ┃ ┃ ┗ 📂 assets/               # App assets (images, icons, etc.)
+ ┃ ┃ ┃ ┗ 📂 assets/               # App assets (logo)
  ┃ ┃ ┃   ┗ 📄 logo.png
  ┃ ┃ ┗ 📄 main.dart               # App entry point
  ┃ ┣ 📄 pubspec.yaml              # Flutter dependencies & assets config
