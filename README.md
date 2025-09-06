@@ -27,7 +27,7 @@ Our proposed solution is SmartBrella Hub, a Smart Umbrella Borrowing and Returni
  ┃ ┗ 📂 test/                  # Unit tests (currently placeholder only)
  ┃   ┗ 📄 README
 
- ┣ 📁 face-recognition-system/     # Face recognition + GUI (Python project)
+ ┣ 📁 face-recognition-system/    # Face recognition + GUI (Python project)
  ┃ ┣ 📄 main.py                   # Tkinter face recognition app (entry point)
  ┃ ┣ 📄 util.py                   # Utility functions (UI helpers, recognition, etc.)
  ┃ ┣ 📄 requirements.txt          # Dependencies for Linux/Mac
@@ -58,13 +58,11 @@ Our proposed solution is SmartBrella Hub, a Smart Umbrella Borrowing and Returni
  ┃ ┣ 📄 pubspec.yaml              # Flutter dependencies & assets config
 
  ┣ 📄 README.md                   # Root project overview
-```plaintext
+```
 ---
 
 ## 🔗 How the System Works
-
 The SmartBrella Hub system is built with three main components working together:
-
 ## 📡 Firmware (ESP32) – Controls the umbrella station hardware (servo locks, LCD, RGB LED, RTC).
 - Handles borrow/return logic
 - Detects overdue umbrellas
