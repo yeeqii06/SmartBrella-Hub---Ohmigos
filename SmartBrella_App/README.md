@@ -1,4 +1,4 @@
-# umbrella_app_new
+# SmartBrella Hub (APP)
 
 A new Flutter project.
 
