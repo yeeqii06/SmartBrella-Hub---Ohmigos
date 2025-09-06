@@ -7,7 +7,7 @@ On university campuses, students often face sudden weather changes such as heavy
 ---
 
 ## ✅ Proposed Solution
-Our proposed solution is SmartBrella Hub, a Smart Umbrella Borrowing and Returning System, designed to make borrowing and returning umbrellas more secure and convenient. The system uses an ESP32 microcontroller as the central controller, connected to a servo motor lock that secures the umbrella when not in use. To ensure only authorized users can access the umbrella, the system integrates face detection technology, simulated through a laptop webcam, which verifies the user’s identity before unlocking. In addition, a mobile application is included to provide real-time monitoring, user registration, and borrowing history, making the system accessible and user-friendly. By combining IoT hardware, biometric verification, and mobile integration, the Smart Umbrella System addresses the challenges of umbrella sharing by improving security, accountability, and ease of use.
+Our proposed solution is SmartBrella Hub, a Smart Umbrella Borrowing and Returning System, designed to make borrowing and returning umbrellas more secure and convenient. The system uses an ESP32 microcontroller as the central controller, connected to a servo motor lock that secures the umbrella when not in use. To ensure only authorized users can access the umbrella, the system integrates face detection technology, simulated through a laptop webcam, which verifies the user’s identity before unlocking. In addition, a mobile application is included to provide real-time monitoring, user login, and borrowing & returning history, making the system accessible and user-friendly. By combining IoT hardware, biometric verification, and mobile integration, the SmartBrella Hub addresses the challenges of umbrella sharing by improving security, accountability, and ease of use.
 
 ---
 
@@ -27,7 +27,7 @@ The SmartBrella Hub system is built with three main components working together:
 
 ## 📱 SmartBrella App (Flutter) – Mobile app for users.
 - Check station availability in real time
-- View borrowing history & penalties
+- View borrowing & returning history
 - Login with their account
 - Integrated map to find umbrella stations nearby
 
