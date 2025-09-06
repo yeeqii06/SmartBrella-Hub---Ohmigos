@@ -27,14 +27,6 @@ We propose a Smart Umbrella Station powered by ESP32 that enables students to co
  ┃ ┗ 📂 test/                  # Unit tests (currently placeholder only)
  ┃   ┗ 📄 README
 
- ┣ 📁 face_recognition/        # Python face recognition module
- ┃ ┣ 📄 hub.py                 # Enrollment + kiosk (GUI + recognition + logo)
- ┃ ┣ 📄 main.py                # Minimal recognition demo (optional)
- ┃ ┣ 📂 faces/                 # Enrollment snapshots (runtime, auto-created)
- ┃ ┣ 📄 umbrella.db            # SQLite DB (runtime, auto-created)
- ┃ ┣ 📄 logo.jpg               # Project logo
- ┃ ┗ 📄 README.md              # Face recognition documentation
-
  ┣📁 face-recognition-system/      # Main project folder
  ┃ ┣ 📄 main.py                   # Tkinter face recognition app (entry point)
  ┃ ┣ 📄 util.py                   # Utility functions (UI helpers, recognition, etc.)
