@@ -11,10 +11,10 @@ This project provides a **Stylish Face Registration and Recognition System** tha
 - ⏱️ **In/Out Logging** → Record entry/exit times for each recognized user
 - 🖥️ **User-Friendly Interface** with real-time camera feed
 
-# Requirement
-Python 3.8 or higher
+# ⚙️ Requirement
+- Python 3.8 or higher
 
-Create Virtual Environment
+- Create Virtual Environment
 
-Install Dependencies
+- Install Dependencies
 
