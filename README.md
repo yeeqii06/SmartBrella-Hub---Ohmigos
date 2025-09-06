@@ -40,22 +40,22 @@ Together, these three modules create a complete IoT solution that links hardware
 ```plaintext
 📁 SmartBrella-Hub-Ohmigos
 ┣📁 Documentation/                  
-┃ ┣ 📁 System Overview/        # System-level documentation
+┃ ┣ 📁 System Overview/           # System-level documentation
 ┃ ┃ ┣ 📄 README.md             
-┃ ┃ ┗ 📄 System Overview.svg   # System flowchart
-┃ ┣ 📄 Block diagram.png       # High-level block diagram
-┃ ┗ 📄 Wiring Diagram.png      # Circuit wiring diagram
+┃ ┃ ┗ 📄 System Overview.svg      # System flowchart
+┃ ┣ 📄 Block diagram.png          # High-level block diagram
+┃ ┗ 📄 Wiring Diagram.png         # Circuit wiring diagram
 
- ┣ 📁 firmware/                # ESP32 firmware (PlatformIO project)
- ┃ ┣ 📄 platformio.ini         # PlatformIO config (board, libraries)
- ┃ ┣ 📄 wokwi.toml             # Wokwi simulation settings
- ┃ ┣ 📄 diagram.json           # Wokwi wiring diagram
+ ┣ 📁 firmware/                   # ESP32 firmware (PlatformIO project)
+ ┃ ┣ 📄 platformio.ini            # PlatformIO config (board, libraries)
+ ┃ ┣ 📄 wokwi.toml                # Wokwi simulation settings
+ ┃ ┣ 📄 diagram.json              # Wokwi wiring diagram
  ┃ ┣ 📄 README.md              
- ┃ ┣ 📂 src/                   # Main source code
+ ┃ ┣ 📂 src/                      # Main source code
  ┃ ┃ ┗ 📄 main.cpp
- ┃ ┣ 📂 lib/                   # Custom libraries (currently placeholder only)
+ ┃ ┣ 📂 lib/                      # Custom libraries (currently placeholder only)
  ┃ ┃ ┗ 📄 README
- ┃ ┗ 📂 test/                  # Unit tests (currently placeholder only)
+ ┃ ┗ 📂 test/                     # Unit tests (currently placeholder only)
  ┃   ┗ 📄 README
 
  ┣ 📁 face-recognition-system/    # Face recognition + GUI (Python project)
