@@ -7,7 +7,7 @@ On university campuses, students often face sudden weather changes such as heavy
 ---
 
 ## ✅ Proposed Solution
-We propose a Smart Umbrella Station powered by ESP32 that enables students to conveniently borrow and return umbrellas using their student card (simulated with buttons in this prototype). The system automatically tracks umbrella availability at each station, records borrow/return times with RTC, and detects overdue returns. To enhance accountability and user experience, students receive real-time WhatsApp notifications (borrow, return, overdue) via CallMeBot. The station integrates an LCD display, RGB LED indicators, and a servo-based locking mechanism for smooth and secure automation. A mobile app is provided to let students check umbrella availability across stations in real time, reducing uncertainty and improving campus convenience.
+Our proposed solution is the Smart Umbrella System, designed to make borrowing and returning umbrellas more secure and convenient. The system uses an ESP32 microcontroller as the central controller, connected to a servo motor lock that secures the umbrella when not in use. To ensure only authorized users can access the umbrella, the system integrates face detection technology, simulated through a laptop webcam, which verifies the user’s identity before unlocking. In addition, a mobile application is included to provide real-time monitoring, user registration, and borrowing history, making the system accessible and user-friendly. By combining IoT hardware, biometric verification, and mobile integration, the Smart Umbrella System addresses the challenges of umbrella sharing by improving security, accountability, and ease of use.
 
 ---
 
