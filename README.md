@@ -46,7 +46,7 @@ Together, these three modules create a complete IoT solution that links hardware
 ┃ ┣ 📄 Block diagram.png          # High-level block diagram
 ┃ ┗ 📄 Wiring Diagram.png         # Circuit wiring diagram
 
- ┣ 📁 firmware/                   # ESP32 firmware (PlatformIO project)
+ ┣ 📁 Firmware code/                   # ESP32 firmware (PlatformIO project)
  ┃ ┣ 📄 platformio.ini            # PlatformIO config (board, libraries)
  ┃ ┣ 📄 wokwi.toml                # Wokwi simulation settings
  ┃ ┣ 📄 diagram.json              # Wokwi wiring diagram
