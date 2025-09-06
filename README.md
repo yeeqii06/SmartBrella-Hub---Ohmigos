@@ -39,11 +39,18 @@ Together, these three modules create a complete IoT solution that links hardware
 
 ```plaintext
 📁 SmartBrella-Hub-Ohmigos
+┣📁 Documentation/                  
+┃ ┣ 📁 System Overview/        # System-level documentation
+┃ ┃ ┣ 📄 README.md             
+┃ ┃ ┗ 📄 System Overview.svg   # System flowchart
+┃ ┣ 📄 Block diagram.png       # High-level block diagram
+┃ ┗ 📄 Wiring Diagram.png      # Circuit wiring diagram
+
  ┣ 📁 firmware/                # ESP32 firmware (PlatformIO project)
  ┃ ┣ 📄 platformio.ini         # PlatformIO config (board, libraries)
  ┃ ┣ 📄 wokwi.toml             # Wokwi simulation settings
  ┃ ┣ 📄 diagram.json           # Wokwi wiring diagram
- ┃ ┣ 📄 README.md              # Firmware documentation
+ ┃ ┣ 📄 README.md              
  ┃ ┣ 📂 src/                   # Main source code
  ┃ ┃ ┗ 📄 main.cpp
  ┃ ┣ 📂 lib/                   # Custom libraries (currently placeholder only)
@@ -56,7 +63,7 @@ Together, these three modules create a complete IoT solution that links hardware
  ┃ ┣ 📄 util.py                   # Utility functions (UI helpers, recognition, etc.)
  ┃ ┣ 📄 requirements.txt          # Dependencies for Linux/Mac
  ┃ ┣ 📄 requirements_window.txt   # Dependencies for Windows
- ┃ ┣ 📄 README.md                 # Project documentation
+ ┃ ┣ 📄 README.md                 
  ┃ ┣ 📂 db/                       # User database (auto-created at runtime)
  ┃ ┃ ┗ 📄 *.pickle                # Pickle files with face embeddings
  ┃ ┣ 📂 logs/                     # Log files (auto-created at runtime)
@@ -80,6 +87,7 @@ Together, these three modules create a complete IoT solution that links hardware
  ┃ ┃ ┃   ┗ 📄 logo.png
  ┃ ┃ ┗ 📄 main.dart               # App entry point
  ┃ ┣ 📄 pubspec.yaml              # Flutter dependencies & assets config
+ ┃ ┣ 📄 README.md
 
  ┣ 📄 README.md                   # Root project overview
 ```
